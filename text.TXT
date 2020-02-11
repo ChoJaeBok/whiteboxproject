@@ -1,3 +1,5 @@
+https://github.com/ChoJaeBok/whiteboxproject.git
+
 psus 업로드
 pull 반대로
 push 전에 pull이 있다.
