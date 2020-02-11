@@ -1,0 +1,10 @@
+psus 업로드
+pull 반대로
+push 전에 pull이 있다.
+<pull>
+git pull origin master - > 지정해놓은 레퍼스토리에서 끌어오는것
+<push>
+git status -> 싱크상태
+git add . -> 변경된 파일들을 모두 트래킹하는 것
+git commit -m "message" -> commit을 달아주는것 (변경사항)
+git push origin +master -> 실제로 git에 Push
