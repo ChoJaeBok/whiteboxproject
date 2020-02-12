@@ -53,19 +53,22 @@ def do_some_stuffs_with_input(input_string):
 	if input_string == "left":
 		input_string = "left."
 #파이 동작 명령 추가할것
+#초기화명령어
 	elif input_string=='clear':
 		clr_list()
-
+#처음 스트리밍 화면에서 좌석 매핑하는
 	elif input_string =="StartROI":
 		#시작 이미지 저장하는 부분.
 		startROI()
+#처음 이후에 비교할 스트리밍 화면에서 좌석 추출하는 부분.
 	elif input_string =="EndROI":
 		#마지막 이미지 저장하는 부분
 		endROI()
-
+#좌석 비교시 사용되는 히스토그램 실행하는 부분.
 	elif input_string =="histogram":
 		#이미지 비교하는
 		input_string = hist_compare(point.count)
+
 	else :#좌표 심는 구간.
 		search =','
 		if search in input_string:
@@ -148,7 +151,7 @@ def hist_compare(d_count):#비교하는 구간
 	else:
 		msg='no people'
 	return msg
-
+#저장된 좌표들 초기화 하는 부분.
 def clr_list():
 	print(point.count)
 	del(x1_list[0:point.count+1])
