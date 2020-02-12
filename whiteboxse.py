@@ -45,7 +45,6 @@ y2_list=[]
 #자동으로 인식할 수 있게 변경할예정.
 width=1080
 height=2220
-#클리어하면 리스트가 삭제되는거 내일 해결하기.
 path ='D:/whitebox'#위치 바꿔주기
 #파이 컨트롤 함수
 def do_some_stuffs_with_input(input_string):
