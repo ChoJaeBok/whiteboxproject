@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <!--Customize your theme here.-->
+        <item name="colorPrimary">#FFE400</item>
+        <item name="colorPrimaryDark">#FFE400</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+     <!--   &lt;!&ndash; No Title Bar &ndash;&gt;
+        <style name="AppTheme.noActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        </style>-->
+
+        <!-- Splash 배경 색 설정-->
+        <color name="bg">#FFFFFF</color>
+
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/itemCAM_01"
+            android:title="카메라1 (외부)"/>
+
+        <item
+            android:id="@+id/itemCAM_02"
+            android:title="카메라2 (내부)" />
+        <item
+             android:id="@+id/itemB3"
+             android:title="서버" />
+
+        <!--<item android:title="서버" >> ">
+            <menu>
+                <item
+                    android:id="@+id/subRotate"
+                    android:title="버튼 45도 회전"/>
+
+                <item
+                    android:id="@+id/subSize"
+                    android:title="버튼 2배 확대"/>
+            </menu>
+        </item>-->
+
+    </menu>

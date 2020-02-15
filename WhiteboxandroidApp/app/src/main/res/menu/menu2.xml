@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemCAM_03"
+        android:title="카메라1(외부) 전체화면"/>
+
+    <item
+        android:id="@+id/itemCAM_04"
+        android:title="카메라2(실내) 전체화면"/>
+
+</menu>
