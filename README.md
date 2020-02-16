@@ -10,3 +10,6 @@
 
 * 시스템 흐름도 
 ![Flowchart](https://user-images.githubusercontent.com/60215726/74607680-fab09780-511d-11ea-953e-719e34f5ac82.PNG)
+
+### 2. 서버
+
