@@ -13,7 +13,8 @@
 
 ### 2. 서버
 ![image](https://user-images.githubusercontent.com/60215726/74607811-5c253600-511f-11ea-82f4-414d0e1cf34e.png)
-1) Homography
+
+#### 1)Homography
 
 Homography 기법을 사용한 이유는 3D의 이미지를 2D처럼 평면화를 해주기 위해 사용하였습니다.
 카메라에서 옆으로 찍히는 좌석들 경우 대각선으로 찍히게 되는 데 성인의 경우에는 좌석에서 차지하는 비율이 많아지고 아이의 경우에는 좌석에서 차지하는 비율이 적어지게 되며 대각선으로 찍히게 되면 그 비율마저 더 작아지게 되므로 이미지 비교 시에 더 확실한 탐지를 위하여 사용하였습니다.
@@ -37,7 +38,7 @@ cv2.imshow("img_Homograph", img_result)
 
 [참조](https://opencv-python.readthedocs.io/en/latest/doc/10.imageTransformation/imageTransformation.html)
 
-2)ROI(Region of Interest)
+#### 2)ROI(Region of Interest)
 
 ROI는 원본 이미지에서 관심영역을 추출할 수 있도록 해주는 영상처리 기법입니다.
 ```python
@@ -57,7 +58,7 @@ def startROI():
 ```
 ![hoRO](https://user-images.githubusercontent.com/60215726/74665699-88a28600-51e3-11ea-83bf-0a5b51dccb27.PNG)
 
-3)Histogram
+#### 3)Histogram
 
 프로젝트에서는 아이가 탐지가 되었는지를 구별하기 위해 사용하였습니다.
 처음 이미지와 비교할 이미지의 각각의 calcHist 명령어를 통해 히스토그램을 계산을 하고 CompareHist 명령어를 통하여 비교한 수치 값과 기준점을 비교하여 아이가 탐지 여부를 파악하였습니다.
