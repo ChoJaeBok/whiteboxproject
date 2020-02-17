@@ -13,3 +13,20 @@
 
 ### 2. 서버
 ![image](https://user-images.githubusercontent.com/60215726/74607811-5c253600-511f-11ea-82f4-414d0e1cf34e.png)
+2)ROI(Region of Interest)
+ROI는 원본 이미지에서 관심영역을 추출할 수 있도록 해주는 영상처리 기법입니다.
+```python
+def startROI():
+	#서버에서 사용된 코드소스입니다.
+	i=0
+	img_start=cv2.imread('/home/pi/Desktop/whitebox/startimage.jpg')
+	while i<=point.count:
+		now='Start_ROI'+str(i)
+		subimg_start = img_start[y1_list[i]:y2_list[i], x1_list[i]:x2_list[i]]
+		#위의 형태로 img_start[y1_list[i]:y2_list[i], x1_list[i]:x2_list[i]]
+		#이 부분에서 ROI를 해주는 것입니다.[처음 y좌표 : 마지막 y좌표, 처음 x좌표:마지막x좌표]로 
+		#표시하였고 현재 프로젝트에서는 여러개의 ROI가 필요하여 list형식인 변수로 넣었습니다.
+		cv2.imwrite(os.path.join(path,str(now)+'.PNG'),subimg_start)
+		#cv2.imshow('start','/home/Start_ROI1.PNG')
+		i+=1
+```
