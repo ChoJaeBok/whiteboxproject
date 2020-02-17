@@ -13,7 +13,30 @@
 
 ### 2. 서버
 ![image](https://user-images.githubusercontent.com/60215726/74607811-5c253600-511f-11ea-82f4-414d0e1cf34e.png)
-2)ROI(Region of Interest)
+* 1) Homography
+Homography 기법을 사용한 이유는 3D의 이미지를 2D처럼 평면화를 해주기 위해 사용하였습니다.
+카메라에서 옆으로 찍히는 좌석들 경우 대각선으로 찍히게 되는 데 성인의 경우에는 좌석에서 차지하는 비율이 많아지고 아이의 경우에는 좌석에서 차지하는 비율이 적어지게 되며 대각선으로 찍히게 되면 그 비율마저 더 작아지게 되므로 이미지 비교 시에 더 확실한 탐지를 위하여 사용하였습니다.
+![ho](https://user-images.githubusercontent.com/60215726/74673767-408b5f80-51f3-11ea-9063-1f3d91e6b167.PNG)
+왼쪽이미지가 원본이며 중앙에 이미지는 일반 ROI를 한 경우이며 맨 오른쪽이미지는 Homography+ROI를 한 경우입니다.
+openCV에서 perspective transformation = homography 관계이며, cv2.getPerspectiveTransform( )와 cv2.findHomography( ) 로 perspective 변환과 homography를 각각 지원하는데 4개의 점만을 이용하여 변환행렬을 찾는 cv2.getPerspectiveTransform( )을 이용하였습니다.
+변환 행렬을 구하기 위해서 cv2.getPerspectiveTransfom()함수를 이용하고 cv2.warpPerspective() 함수에 변환행렬값을 적용하여 최종 결과 이미지를 얻는 것입니다.
+```python
+#[x,y] 좌표점을 4*2의 행렬로 작성
+#좌표점은 좌상->좌하->우상->우하
+pts1 = np.float32([list(point_list[0]),list(point_list[1]),list(point_list[2]),list(point_list[3])])
+# 좌표의 이동점
+pts2 = np.float32([[0,0],[weight,0],[0,height],[weight,height]])
+
+M = cv2.getPerspectiveTransform(pts1,pts2)
+
+img_result = cv2.warpPerspective(img_original, M, (weight,height))
+cv2.imshow("img_Homograph", img_result)
+```
+(단, 프로젝트 당시 코드에서는 모형으로 진행하였고 다른 문제로 인하여 Homography 부분은 제외하고 진행하였습니다. 이 코드소스는 따로 Homography.py명으로 업로드 되어있습니다.)
+
+[참조](https://opencv-python.readthedocs.io/en/latest/doc/10.imageTransformation/imageTransformation.html)
+
+* 2)ROI(Region of Interest)
 ROI는 원본 이미지에서 관심영역을 추출할 수 있도록 해주는 영상처리 기법입니다.
 ```python
 def startROI():
@@ -32,7 +55,7 @@ def startROI():
 ```
 ![hoRO](https://user-images.githubusercontent.com/60215726/74665699-88a28600-51e3-11ea-83bf-0a5b51dccb27.PNG)
 
-### 3.Histogram
+* 3)Histogram
 프로젝트에서는 아이가 탐지가 되었는지를 구별하기 위해 사용하였습니다.
 처음 이미지와 비교할 이미지의 각각의 calcHist 명령어를 통해 히스토그램을 계산을 하고 CompareHist 명령어를 통하여 비교한 수치 값과 기준점을 비교하여 아이가 탐지 여부를 파악하였습니다.
 ![비교](https://user-images.githubusercontent.com/60215726/74666635-35313780-51e5-11ea-8a3b-9bdd5bf3110b.PNG)
