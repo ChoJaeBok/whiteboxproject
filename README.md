@@ -30,3 +30,6 @@ def startROI():
 		#cv2.imshow('start','/home/Start_ROI1.PNG')
 		i+=1
 ```
+![hoRO](https://user-images.githubusercontent.com/60215726/74665699-88a28600-51e3-11ea-83bf-0a5b51dccb27.PNG)
+
+### 3.Histogram
