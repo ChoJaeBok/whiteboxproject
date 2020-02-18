@@ -110,3 +110,22 @@ def hist_compare(d_count):
 	return msg
 ``` 
 [참조 OpenCV:histogram](https://docs.opencv.org/3.4/d6/dc7/group__imgproc__hist.html)
+
+### 3. 카메라(Raspberry pi Zero)
+ 각각의 카메라 모듈을 장착한 라즈베리 파이 제로킷을 두 대를 사용했는데 한 대는 내부를 촬영하는 역할, 나머지 한 대는 외부를 촬영하는 역할로 사용하였습니다. 외부를 촬영하는 목적으로는 운전대 기준으로 오른쪽 차량 사이드 미러에 붙이는 것으로 체격이 작은 아이들이 탑승, 하차 할 때 보이지 않는 사각지대에서 오는 많은 위험으로부터  안전을 더 보장하기 위해 설치하였습니다.
+Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시간 스트리밍 프로토콜(RTSP)를 이용하였습니다.
+또한 앱에서와 카메라 자체 내에서 미디어 처리를 위한 Gstramer를 사용해주었습니다.
+#라즈베리 파이 안에서 RTSP 서버를 열어주고 카메라 스트리밍을 해주는 Bash 스크립트입니다.
+##cam.sh## 
+```linux
+#!/bin/bash 
+/home/pi/gst-rtsp-server/examples/./test-launch "( rpicamsrc preview=false bitrate=2000000 keyframe-interval=30 ! video/x-h264, framerate=30/1 ! h264parse ! rtph264pay name=pay0 pt=96 )"
+```
+카메라 역할만 하는 제로킷들은 따로 모니터가 불필요해서 전원만 주어도 자동으로 서버와 카메라가 실행이 되도록 해주는 설정도 해주었습니다. 
+여기서는 리눅스 작업 스케줄러인 crontab을 사용하였고 부팅시 켜지기 위함으로 
+```linux
+@reboot /home/pi/gst-rtsp-server/examples/cam.sh
+```
+추가 입력해주었습니다.
+![2020-02-18-173422_1366x768_scrot](https://user-images.githubusercontent.com/60215726/74733387-91e92c80-528f-11ea-969c-58c140736f8a.png)
+
