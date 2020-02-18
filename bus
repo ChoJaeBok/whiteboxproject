@@ -1,0 +1,283 @@
+[33mcommit b4fde5ed1fd40564232917b02b477b8124843216[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 19 01:56:01 2020 +0900
+
+    bus
+
+[33mcommit 624977ace5f4bc9ed39376e531a484c54d94c08e[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 19 01:43:36 2020 +0900
+
+    bus image
+
+[33mcommit a42161a62256768d44a48f07d78f85bec624b0ee[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 01:01:06 2020 +0900
+
+    Update README.md
+
+[33mcommit b24288bf067433026455f618fd94f240b4e5b1cc[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:59:46 2020 +0900
+
+    Update README.md
+
+[33mcommit add007975f2c9e2d7b64f061773ebac240a6d76f[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:51:25 2020 +0900
+
+    Update README.md
+
+[33mcommit b0dd01e9b04bb21f93607de45e03a7d0336b3ac4[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:45:42 2020 +0900
+
+    Update README.md
+
+[33mcommit fa053abd6c05e523e38af33fd57f47e34a1b4b42[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:45:17 2020 +0900
+
+    Update README.md
+
+[33mcommit 911f8003a574b9c9067a0b1acb497c6b4a09570a[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:45:06 2020 +0900
+
+    Update README.md
+
+[33mcommit c28b5592cb1303555fab7514b1daa00c06bbdc65[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:44:18 2020 +0900
+
+    Update README.md
+
+[33mcommit 340f5349e74dafe12b4d07f44c8bcd86a8d1a7e1[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:43:14 2020 +0900
+
+    Update README.md
+
+[33mcommit 756a0f4c2d54bd4f5417e7278b69ffa6507db36c[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:35:05 2020 +0900
+
+    Update README.md
+
+[33mcommit 626425eaca23ebddac83d69e51abe858d60646b6[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Wed Feb 19 00:34:30 2020 +0900
+
+    Update README.md
+
+[33mcommit 52e48c99be63e98b9533d0c50e7fb43f3dbf6959[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Tue Feb 18 20:51:55 2020 +0900
+
+    Update README.md
+
+[33mcommit d910718d74c88dba53b161782fc7886f6aa6fa0e[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Tue Feb 18 20:45:29 2020 +0900
+
+    Update README.md
+
+[33mcommit fa827bb81b0b75773d44772ed6f7ceb0a018146b[m
+Merge: de40bdc 33288d8
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Tue Feb 18 20:01:16 2020 +0900
+
+    Merge branch 'master' of https://github.com/ChoJaeBok/whiteboxproject
+
+[33mcommit de40bdcd19d8a5608aae0f0a72c76e202f15ad5f[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Tue Feb 18 20:00:59 2020 +0900
+
+    수정
+
+[33mcommit 33288d8174a8f2bc32a74890871abb73f41dfbca[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Tue Feb 18 12:16:43 2020 +0900
+
+    Update README.md
+
+[33mcommit f856935222b30874f925f46bc6e4db30abb591b0[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Tue Feb 18 02:16:55 2020 +0900
+
+    Update README.md
+
+[33mcommit e3b06242b06aead3aececce2d74fec7f95fd121b[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Tue Feb 18 02:14:38 2020 +0900
+
+    Update README.md
+
+[33mcommit c0974af7335c3f92114c9f511ddc8b8e9b692bd3[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Tue Feb 18 02:12:59 2020 +0900
+
+    Update README.md
+
+[33mcommit 2f3f73c53d1305ab6aa48d60f0e5c8aa95b3774e[m
+Merge: a0ef247 73d31b4
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Tue Feb 18 01:54:08 2020 +0900
+
+    Merge branch 'master' of https://github.com/ChoJaeBok/whiteboxproject
+
+[33mcommit a0ef247ba3073596c47e522db23fb25a044074f2[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Tue Feb 18 01:52:29 2020 +0900
+
+    homography.py
+
+[33mcommit 73d31b45779fc9ca6f6524f1aea06d5def833b6d[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Tue Feb 18 00:28:37 2020 +0900
+
+    Update README.md
+
+[33mcommit bf27e7745ba35e0b42014b16b6b0becfc7eba3e3[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Tue Feb 18 00:25:19 2020 +0900
+
+    Update README.md
+
+[33mcommit 6bc30fe46506b36cc39d91564ac17fe2fc9840f0[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 23:24:03 2020 +0900
+
+    Update README.md
+
+[33mcommit a2dba58cfebb63e647254ea179c123b077e776f2[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:51:36 2020 +0900
+
+    Update README.md
+
+[33mcommit c6826bafbc65a41008ed05bef1b278e6483a31e6[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:49:20 2020 +0900
+
+    Update README.md
+
+[33mcommit 21f5d8bd4e480fff8290fab72926916085916e7c[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:43:34 2020 +0900
+
+    Update README.md
+
+[33mcommit 476a6bc8ca90c58fee5ccb4adf990b7fb6fb1360[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:42:55 2020 +0900
+
+    Update README.md
+
+[33mcommit 8b79a57954a88d8de1a1109d4ed0cebfb3d1f713[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:41:26 2020 +0900
+
+    Update README.md
+
+[33mcommit 50a722e51ced6ad91d3d5676d8d9a007fe324a99[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:38:36 2020 +0900
+
+    Update README.md
+
+[33mcommit b06aa2722cdb7ae941a8227770a601ff453fed49[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:24:13 2020 +0900
+
+    Update README.md
+
+[33mcommit 7f1ebe70e6034ef1e94e0bd60f0f53b9edcde5c5[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:22:45 2020 +0900
+
+    Update README.md
+
+[33mcommit 1e27eed020b12fe89d3396cad9a904a5666a07e9[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:22:06 2020 +0900
+
+    Update README.md
+
+[33mcommit 8a3a912be32fbd54b5dc3e33deff0c801d270589[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:14:53 2020 +0900
+
+    Update README.md
+
+[33mcommit 01023436959dab3bb22189727eb8b092ce18f5cd[m
+Author: ChoJaeBok <60215726+ChoJaeBok@users.noreply.github.com>
+Date:   Mon Feb 17 00:13:08 2020 +0900
+
+    Create README.md
+
+[33mcommit b9e2aadebeac1c029f0063f4596702733baef588[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Sun Feb 16 01:20:29 2020 +0900
+
+    whitebox android app-codes and xml
+
+[33mcommit 347840597a476d5b3b1fdc9affccb0e996464433[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Sun Feb 16 01:17:17 2020 +0900
+
+    whitebox android app
+
+[33mcommit 0696ae908b2a22cf19deb416fa78fcf6f0284a75[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Sat Feb 15 23:44:44 2020 +0900
+
+    수정
+
+[33mcommit 3bf72a80fe43a5ffa4c4808addabaf2cb0b2f37d[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Sat Feb 15 23:39:56 2020 +0900
+
+    라즈베리파이용, 윈도우용 서버수정
+
+[33mcommit f68ec5639e308878ad278fc61f33f7adf560ed7c[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 12 23:39:05 2020 +0900
+
+    수정
+
+[33mcommit f7a9548c62d940d26a496c539101245c0af88c04[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 12 23:32:54 2020 +0900
+
+    수정
+
+[33mcommit 80c323e935c66d35d3ed0ef737a91e795d5da5c8[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 12 20:44:16 2020 +0900
+
+    캡스톤playing video
+
+[33mcommit 6403ca851cb998827f59899df1f1215fb47e2f91[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 12 20:42:02 2020 +0900
+
+    캡스톤 영상과 피피티
+
+[33mcommit e312a840205761fd07a2f71bb98a2d702918f448[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 12 20:40:03 2020 +0900
+
+    python server code
+
+[33mcommit dd387fb6cc1dabf3c62e77e4da1c0f701f9a8604[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 12 05:58:40 2020 +0900
+
+    test git
+
+[33mcommit 1d6f30e94d1126605d955c192312efb9c8ba741f[m
+Author: Jae Bok Cho <whwpqhr@naver.com>
+Date:   Wed Feb 12 05:55:15 2020 +0900
+
+    test git
