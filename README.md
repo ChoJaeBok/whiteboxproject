@@ -131,5 +131,5 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
 ![2020-02-18-173422_1366x768_scrot](https://user-images.githubusercontent.com/60215726/74733387-91e92c80-528f-11ea-969c-58c140736f8a.png)
 
 ### 4. APP(Java)
-<iframe width="640" height="360" src=“https://youtu.be/j18SoUClJeI?t=173” frameborder="0" gesture="media" allowfullscreen=""></iframe>
+[!Video Label](https://youtu.be/j18SoUClJeI)](https://youtu.be/tC8Xj_Bf8Fw)
 
