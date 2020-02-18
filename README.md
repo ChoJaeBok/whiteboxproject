@@ -116,13 +116,14 @@ def hist_compare(d_count):
 Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시간 스트리밍 프로토콜(RTSP)를 이용하였습니다.
 또한 앱에서와 카메라 자체 내에서 미디어 처리를 위한 Gstramer를 사용해주었습니다.
 #라즈베리 파이 안에서 RTSP 서버를 열어주고 카메라 스트리밍을 해주는 Bash 스크립트입니다.
-##cam.sh## 
+**cam.sh**
 ```linux
 #!/bin/bash 
 /home/pi/gst-rtsp-server/examples/./test-launch "( rpicamsrc preview=false bitrate=2000000 keyframe-interval=30 ! video/x-h264, framerate=30/1 ! h264parse ! rtph264pay name=pay0 pt=96 )"
 ```
 카메라 역할만 하는 제로킷들은 따로 모니터가 불필요해서 전원만 주어도 자동으로 서버와 카메라가 실행이 되도록 해주는 설정도 해주었습니다. 
 여기서는 리눅스 작업 스케줄러인 crontab을 사용하였고 부팅시 켜지기 위함으로 
+**crontab**
 ```linux
 @reboot /home/pi/gst-rtsp-server/examples/cam.sh
 ```
