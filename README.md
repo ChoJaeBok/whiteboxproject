@@ -131,5 +131,5 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
 ![2020-02-18-173422_1366x768_scrot](https://user-images.githubusercontent.com/60215726/74733387-91e92c80-528f-11ea-969c-58c140736f8a.png)
 
 ### 4. APP(Java)
-[![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI) Video Label
-
+[![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI)   
+App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정상작동 중입니다.
