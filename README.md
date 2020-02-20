@@ -131,6 +131,147 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
 ![2020-02-18-173422_1366x768_scrot](https://user-images.githubusercontent.com/60215726/74733387-91e92c80-528f-11ea-969c-58c140736f8a.png)
 
 ### 4. APP(Java)
+   
+#### 1) python과의 소켓통신
+소켓 통신을 하기 위한 클래스 부분입니다. 
+```java
+    //서버
+    //서버와 연결하기 위한 연결고리로써 메인 화면에서는 필요한 이유가 종료버튼에서
+    //아이나 사람, 물체가 감지되었을 때 종료버튼이 실행되지않고 경고창을 나타내기 위해서 필요합니다.
+    public class MyClientTask extends AsyncTask<Void, Void, Void> {
+        String dstAddress;
+        int dstPort;
+        String response = "";
+        String myMessage = "";
+
+        //constructor
+        MyClientTask(String addr, int port, String message){
+            dstAddress = addr;
+            dstPort = port;
+            myMessage = message;
+        }
+        //서버와 통신하기위한 부분.
+        @Override
+        protected Void doInBackground(Void... arg0) {
+
+            Socket socket = null;
+            myMessage = myMessage.toString();
+            try {
+                socket = new Socket(dstAddress, dstPort);
+                //송신
+                OutputStream out = socket.getOutputStream();
+                out.write(myMessage.getBytes());
+
+                //수신
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                InputStream inputStream = socket.getInputStream();
+
+   /*   notice:
+     * inputStream.read() will block if no data return*/
+
+                while ((bytesRead = inputStream.read(buffer)) != -1){
+                    byteArrayOutputStream.write(buffer, 0, bytesRead);
+                    String msg = byteArrayOutputStream.toString()+"byteArrayOutputStream 이거 실행중";
+                    response += byteArrayOutputStream.toString("UTF-8");
+                }
+                response = "서버의 응답: " + response;
+                //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+
+            } catch (UnknownHostException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                response = "UnknownHostException: " + e.toString();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                response = "IOException: " + e.toString();
+            }finally{
+                if(socket != null){
+                    try {
+                        socket.close();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            // recieveText.setText(response);
+
+            ip.setB3_msg(response);
+            com_msg=response;
+            String comsg = "서버의 응답: detech";
+            String comsg2 = "서버의 응답: no people";
+            if (comsg.equals(com_msg))
+            {      but_num++;}
+            else if(comsg2.equals(com_msg)){
+                but_num++;
+            }
+            super.onPostExecute(result);
+        }
+    }//서버 
+```
+(위의 코드에서 생성자 부분만 표시한 코드입니다.)   
+```java
+//constructor
+        MyClientTask(String addr, int port, String message){
+            dstAddress = addr;
+            dstPort = port;
+            myMessage = message;
+        }
+```
+MyClientTask의 객체를 생성하고 위에 있는 MyClientTask의 생성자의 변수 순으로 입력해주어 이용할 수 있습니다.
+addr은 서버역할을 하는 ip, port는 8888로 연결되어있는동안 변하지 않는 숫자들임으로 ip은 처음에 받아서 저장하고 사용하도록 변수에 저장하여 사용하였습니다.   
+(IpReciver.java 파일에 저장되어있는 것처럼 카메라와 서버의 Ip를 저장하고 이용할 수 있도록 하였습니다.)
+message은 클라이언트가 서버에 명령을 내리기위한 메시지로 서버에서 저장되어있는 이름과 동일하게 사용해야 합니다.
+아래의 코드에서 message인 his_msg는 histogram을 나타내고 myClientTask2.execute();의 실행으로 서버에서 histogram인 비교를 시작합니다. 
+```java
+//java 클라이언트 서버 통신 실행.
+static String his_msg = "histogram";
+ip_num = ip.getB3_ip();
+ //아래 두 줄의 코드가 서버에 원하는 행동을 보내는 것으로
+//ip_num은 서버에 연결되어있는 wifi의 ip이며, EndROI는 서버에 저장되어 있는 EndROI의 명령어를 사용하기 위해 보내는 것입니다.
+//종료버튼에서 처음 명령을 보낼 때 비교할 이미지를 ROI를 하기위해 실행을 해줍니다.
+MyClientTask myClientTask2 = new MyClientTask(ip_num, 8888, his_msg);//종료
+myClientTask2.execute();
+```
+위의 코드(java)가 실행하게 되면 아래 서버의 python으로 넘어갑니다.   
+```python
+#whiteboxserver
+#수신한 데이터로 파이를 컨트롤
+	res = do_some_stuffs_with_input(data)
+	print("pi ac :" + res)
+	#클라이언트에게 답을 보냄
+	conn.sendall(res.encode("utf-8"))
+```   
+python에서 수신을 받고 결과물에 따라 답을 보냅니다.   
+```java
+//클라이언트(java) 클래스 내부에 존재하는 메소드 오버라이딩(histogram비교 후 아이 감지 대한 부분)
+ @Override
+        protected void onPostExecute(Void result) {
+            // recieveText.setText(response);
+
+            ip.setB3_msg(response);
+            com_msg=response;
+            String comsg = "서버의 응답: detech";
+            String comsg2 = "서버의 응답: no people";
+            if (comsg.equals(com_msg))
+            {      but_num++;}
+            else if(comsg2.equals(com_msg)){
+                but_num++;
+            }
+            super.onPostExecute(result);
+        }
+    }
+```   
+java에서 이렇게 수신을 한 뒤 response의 변수에 python의 답을 받게 되는 것 입니다.
+
 [![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI)   
 App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정상작동 중입니다.
 
