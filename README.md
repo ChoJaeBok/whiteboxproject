@@ -295,7 +295,89 @@ public static String uri2 = ip.getIp2();
  v.start();
 ```	
 스트리밍을 위한 공간으로 VideoView를 사용하여 스트리밍을 진행합니다. (추후에는 VideoView 대신에 NDK으로 변경할 예정입니다.)     
+   
+#### 3) 좌석 매핑
+스트리밍 화면을 캡처를 하여 그 이미지에 드래그로 이용하여 좌석을 매핑하는 방식으로 설정하였습니다.
+```java
+//SeatMapping.java
+//여기서 불러온 이미지에서 원하는 곳에 좌석을 매핑하는 부분.
+//처음에 터치한 곳과 마지막에 터치를 때는 곳 두 점을 서버에 보내는 방식.
+ int x =0;
+            int y =0;
 
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                x = (int)event.getX();
+                y = (int)event.getY();
+                //int형인 x와 y를 ','와 더하여 String으로 만든 이유는
+                //서버에 보낼 때 문자열로 인식한 다음 ',' 기준으로 x와y를 나누기 위해 사용하였습니다.
+                String msg = x+","+y;
+                //처음 터치한 지점에서 서버에 보내는 명령어입니다(아래)
+                MyClientTask myClientTask = new MyClientTask(b3_uri, 8888, msg);
+
+                myClientTask.execute();
+                tv2.setText(msg);
+
+                // Toast.makeText(getApplicationContext(), "Down", Toast.LENGTH_LONG).show();
+            } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+
+                //  Toast.makeText(getApplicationContext(), "Move", Toast.LENGTH_LONG).show();
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                int end_x = (int)event.getX();
+                int end_y = (int)event.getY();
+                String msg = end_x+","+end_y;
+                //터치하는 곳을 때는 지점에서 서버에 보내는 명령어입니다(아래)
+                MyClientTask myClientTask = new MyClientTask(b3_uri, 8888, msg);
+                myClientTask.execute();
+                tv3.setText(msg);
+                i+=1;
+                tv4.setText(i+"번째 좌석지정중");
+                // Toast.makeText(getApplicationContext(), "Up", Toast.LENGTH_LONG).show();
+            }
+
+            return true;
+        }
+        else{
+
+            return false;
+        }
+```
+드래그를 진행하는 전체 코드입니다.
+   
+```java
+//터치를 시작하는 코드
+
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                x = (int)event.getX();
+                y = (int)event.getY();
+                //int형인 x와 y를 ','와 더하여 String으로 만든 이유는
+                //서버에 보낼 때 문자열로 인식한 다음 ',' 기준으로 x와y를 나누기 위해 사용하였습니다.
+                String msg = x+","+y;
+                //처음 터치한 지점에서 서버에 보내는 명령어입니다(아래)
+                MyClientTask myClientTask = new MyClientTask(b3_uri, 8888, msg);
+
+                myClientTask.execute();
+                tv2.setText(msg);
+```
+먼저 터치를 처음시작하는 코드에서 좌석에 대한 왼쪽 맨위를 나타내며 x와 y를 event.getX와 Y로 통해 받은 뒤
+String msg에 x+“,”+y를 넣어줍니다. 이 부분에서 x와 y를 ‘,’와 합쳐서 서버에 보내는 이유는 연속으로 두 번의 서버에게 통신을 하는 myClientTask.execute()을 한번으로 줄이기 위함입니다. ‘,’를 붙여준 이유는 서버에서 기준으로 잡고 x와 y를 구별해주는 역할로 붙여주었습니다.
+   
+```java
+///터치를 때는 부분코드입니다.
+else if (event.getAction() == MotionEvent.ACTION_UP) {
+                int end_x = (int)event.getX();
+                int end_y = (int)event.getY();
+                String msg = end_x+","+end_y;
+                //터치하는 곳을 때는 지점에서 서버에 보내는 명령어입니다(아래)
+                MyClientTask myClientTask = new MyClientTask(b3_uri, 8888, msg);
+                myClientTask.execute();
+                tv3.setText(msg);
+                i+=1;
+                tv4.setText(i+"번째 좌석지정중");
+                // Toast.makeText(getApplicationContext(), "Up", Toast.LENGTH_LONG).show();
+            }
+```
+터치를 때는 부분으로 오른쪽아래의 x,y좌표를 서버로 보내주는 코드입니다. 방식은 터치를 시작하는 부분과 같고
+여기까지 완료를 하면 서버에 한 좌석에 대한 매핑을 완료를 한 것입니다. 
 #### 4) 앱 시연영상   
 [![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI)   
 App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정상작동 중입니다.
