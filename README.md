@@ -294,7 +294,7 @@ public static String uri2 = ip.getIp2();
  v.requestFocus();
  v.start();
 ```	
-스트리밍을 위한 공간으로 VideoView를 사용하여 스트리밍을 진행합니다.      
+스트리밍을 위한 공간으로 VideoView를 사용하여 스트리밍을 진행합니다. (추후에는 VideoView 대신에 NDK으로 변경할 예정입니다.)     
 
 #### 4) 앱 시연영상   
 [![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI)   
