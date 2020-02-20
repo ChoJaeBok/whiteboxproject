@@ -270,8 +270,33 @@ python에서 수신을 받고 결과물에 따라 답을 보냅니다.
         }
     }
 ```   
-java에서 이렇게 수신을 한 뒤 response의 변수에 python의 답을 받게 되는 것 입니다.
+java에서 이렇게 수신을 한 뒤 response의 변수에 python의 답을 받게 되는 것 입니다.   
+   
+#### 2) 스트리밍(제로 킷과 앱의 연동)
+카메라와 앱에서의 연동을 할 때 이용하는 카메라 IP는 rtsp://192.168.0.0:8554/test 이처럼 구성하며 
+안에 있는 192.168.0.0는 라즈베리파이에 연결된 wifi ip입니다.(단, 테블릿과 카메라는 같은 wifi로 연결되어있어야합니다.)     
+```java
+//SettingActivity.java인 설정 부분
+ dlgEdtIP_02 = (EditText) dialogView.findViewById(R.id.dlgEdt2);
+ ip.setIp1(dlgEdtIP_02.getText().toString());
+```
+이처럼 입력받은 뒤 IpReceiver에 저장한 뒤 이용하도록 만들었습니다. ( 서버와 마찬가지로 ip는 변함이 없고 분할된 스트리밍과 확대된 스트리밍화면인 클래스가 다르기 때문에 번거롭지 않게 하기 위하여 설계하였습니다.)   
+```java
+//InsideFullScrren.java 코드
+public static String uri2 = ip.getIp2();
+```
+위처럼 uri2 변수에 ip를 가져와 사용합니다.
+```java
+//InsideFullScrren.java 코드
+//스트리밍을 하기 위한 공간과 시작.
+ VideoView v = (VideoView) findViewById(R.id.videoView04);
+ v.setVideoURI(Uri.parse(uri2));
+ v.requestFocus();
+ v.start();
+```	
+스트리밍을 위한 공간으로 VideoView를 사용하여 스트리밍을 진행합니다.      
 
+#### 4) 앱 시연영상   
 [![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI)   
 App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정상작동 중입니다.
 
