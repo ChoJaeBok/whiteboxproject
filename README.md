@@ -378,9 +378,113 @@ else if (event.getAction() == MotionEvent.ACTION_UP) {
 ```
 터치를 때는 부분으로 오른쪽아래의 x,y좌표를 서버로 보내주는 코드입니다. 방식은 터치를 시작하는 부분과 같고
 여기까지 완료를 하면 서버에 한 좌석에 대한 매핑을 완료를 한 것입니다. 
-#### 4) 앱 시연영상   
+   
+#### 4) 종료시
+버튼 2번 눌르는 방식을 만들었는데 소켓 통신 중에 반응이 처음 눌렀을 때 없게 되는 것을 발견하였고 두 번 이후 부터 서버의 반응이 보이게 되어 이러한 방식을 선택하였습니다.
+```java
+Button exitButton = (Button) findViewById(R.id.exit);
+exitButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+              
+                if(but_num==0){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    String b3_msg = ip.getB3_msg();
+                    String comsg = "서버의 응답: detech";
+                    ip_num = ip.getB3_ip();
+//아래 두 줄의 코드가 서버에 원하는 행동을 보내는 것으로
+//ip_num은 서버에 연결되어있는 wifi의 ip이며, EndROI는 서버에 저장되어 있는 EndROI의   명령어를 사용하기 위해 보내는 것입니다.
+//종료버튼에서 처음 명령을 보낼 때 비교할 이미지를 ROI를 하기위해 실행을 해줍니다.
+                    MyClientTask myClientTask2 = new MyClientTask(ip_num, 8888, "EndROI");//종료
+                    myClientTask2.execute();
+                    myClientTask2 = new MyClientTask(ip_num, 8888, his_msg);//종료
+                    myClientTask2.execute();
+                    Toast.makeText(getApplicationContext(), com_msg, Toast.LENGTH_LONG).show();
+                    builder.setMessage("통신중입니다. 다시 한번 눌러주십시오.");
+                    builder.setTitle("경고알림창")
+                            .setCancelable(false)
+                            .setNegativeButton("yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int i) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.setTitle("종료 알림창");
+                    alert.show();
+
+                }
+                else if (but_num > 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    String comsg = "서버의 응답: detech";
+                    ip_num = ip.getB3_ip();
+
+                    MyClientTask myClientTask2 =new MyClientTask(ip_num, 8888, his_msg);//종료
+                    myClientTask2.execute();
+                    Toast.makeText(getApplicationContext(), com_msg, Toast.LENGTH_LONG).show();
+                    if (comsg.equals(com_msg)) {
+                        builder.setMessage("★★★경고 아이가 남아 있습니다.★★★");
+                        builder.setTitle("경고알림창")
+                                .setCancelable(false)
+                                .setNegativeButton("확인하십시오", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int i) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+                        alert.setTitle("종료 알림창");
+                        alert.show();
+                    } else {
+                        builder.setMessage("아이가 없습니다. 종료하시겠습니까?");
+                        builder.setTitle("종료 알림창")
+                                .setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int i) {
+                                        finish();
+                                        ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                                        am.restartPackage(getPackageName());
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int i) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+                        alert.setTitle("종료 알림창");
+                        alert.show();
+
+                    }
+                    but_num = 0;
+                }
+
+            }
+        });
+```   
+종료 버튼을 눌렀을 시에 움직이도록 해주는 but_num이 존재를 하는 데 but_num은 위에 코드에는 존재하지 않지만 같은 클래스파일에 존재하는 서버에서 응답으로 오는 것입니다. 앱에서 서버의 비교를 시작하는 명령을 통해 응답으로 오는 감지를 뜻하는 detech라는 것이 넘어오게 되면 but_num의 변화를 시켜 사용자에게 경고창을 보여주게 됩니다.
+```java
+//MainActivity.java 에 속하는 서버 메소드 부분이며 but_num을 변화시켜주는 부분입니다.
+ @Override
+        protected void onPostExecute(Void result) {
+            // recieveText.setText(response);
+
+            ip.setB3_msg(response);
+            com_msg=response;
+            String comsg = "서버의 응답: detech";
+            String comsg2 = "서버의 응답: no people";
+            if (comsg.equals(com_msg))
+            {      but_num++;}
+           
+            super.onPostExecute(result);
+        }
+```
+      
+#### 5) 앱 시연영상   
 [![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI)   
-App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정상작동 중입니다.
+App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정상작동 중인 입니다.
 
 ### 5. 작품 모형 및 캡스톤 경진대회
 ![모형](https://user-images.githubusercontent.com/60215726/74937280-1625e600-542f-11ea-8d3b-f7c1deefc52a.PNG)
