@@ -262,9 +262,7 @@ public class MainActivity extends AppCompatActivity {
             String comsg2 = "서버의 응답: no people";
             if (comsg.equals(com_msg))
             {      but_num++;}
-            else if(comsg2.equals(com_msg)){
-                but_num++;
-            }
+           
             super.onPostExecute(result);
         }
     }//서버 끝

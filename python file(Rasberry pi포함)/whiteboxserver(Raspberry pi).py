@@ -201,10 +201,11 @@ while True:
 	data = data.decode("utf8").strip()
 	if not data: break
 	print("Received: " + data)
-
+	#수신한 데이터로 파이를 컨트롤
 	res = do_some_stuffs_with_input(data)
 	print("pi ac :" + res)
-
+	#클라이언트에게 답을 보냄
 	conn.sendall(res.encode("utf-8"))
+
 	conn.close()
 s.close()
