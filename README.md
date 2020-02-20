@@ -481,11 +481,14 @@ exitButton.setOnClickListener(new View.OnClickListener(){
             super.onPostExecute(result);
         }
 ```
-      
+          
 #### 5) 앱 시연영상   
 [![Video Label](https://img.youtube.com/vi/j18SoUClJeI/0.jpg)](https://youtu.be/j18SoUClJeI)   
 App에서 실행되는 시연영상입니다. 스트리밍과 서버 또한 정상작동 중인 입니다.
-
+   
+  
+[참조블로그](https://blog.naver.com/cosmosjs/220834751822)
+   
 ### 5. 작품 모형 및 캡스톤 경진대회
 ![모형](https://user-images.githubusercontent.com/60215726/74937280-1625e600-542f-11ea-8d3b-f7c1deefc52a.PNG)
 ![경진](https://user-images.githubusercontent.com/60215726/74937275-145c2280-542f-11ea-82e5-ae01d26da9ec.PNG)
