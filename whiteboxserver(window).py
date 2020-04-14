@@ -12,7 +12,7 @@ print ('Socket bind complete')
 s.listen(1)
 print ('Socket now listening')
 def point(x):
-#point count
+	#point count
 	if(x==0):
 		point.count +=1
 	else :
@@ -22,8 +22,8 @@ def cnum():
 	cnum.count+=1
 cnum.count=0
 def inum(x):
-#좌석 설정할 때 변수들을 저장할때 도와주는 변수.
-# 1set =0,1 * 2= >reset
+	#좌석 설정할 때 변수들을 저장할때 도와주는 변수.
+	# 1set =0,1 * 2= >reset
 	if x==0:
 		inum.count+=1
 		if(inum.count ==2):
@@ -52,19 +52,20 @@ def do_some_stuffs_with_input(input_string):
     #input_string 변수가 java 앱에서 넘어오는 값이 같은 걸로 실행.
 	if input_string == "left":
 		input_string = "left."
-#파이 동작 명령 추가할것
-#초기화명령어
+	#파이 동작 명령 추가할것
+	#초기화명령어
 	elif input_string=='clear':
 		clr_list()
-#처음 스트리밍 화면에서 좌석 매핑하는
+	#처음 스트리밍 화면에서 좌석 매핑하는
 	elif input_string =="StartROI":
 		#시작 이미지 저장하는 부분.
 		startROI()
-#처음 이후에 비교할 스트리밍 화면에서 좌석 추출하는 부분.
+
+	#처음 이후에 비교할 스트리밍 화면에서 좌석 추출하는 부분.
 	elif input_string =="EndROI":
 		#마지막 이미지 저장하는 부분
 		endROI()
-#좌석 비교시 사용되는 히스토그램 실행하는 부분.
+	#좌석 비교시 사용되는 히스토그램 실행하는 부분.
 	elif input_string =="histogram":
 		#이미지 비교하는
 		input_string = hist_compare(point.count)
@@ -100,7 +101,8 @@ def startROI():
 	small.save('startimage.jpg','jpeg')
 	large.save('Endimage.jpg','jpeg')
 	img_start=cv2.imread('startimage.jpg')
-	while i<=point.count:# 처음 이미지에 ROI하는
+	while i<=point.count:
+		# 처음 이미지에 ROI하는
 		now='Start_ROI'+str(i)
 		subimg_start = img_start[y1_list[i]:y2_list[i], x1_list[i]:x2_list[i]]
 		cv2.imwrite(os.path.join(path,str(now)+'.PNG'),subimg_start)
@@ -108,7 +110,6 @@ def startROI():
 
 def endROI():
     i=0
-
     img_End=cv2.imread('Endimage.jpg')
     while i<=point.count:
         # 마지막 이미지에 ROI하는
@@ -116,7 +117,8 @@ def endROI():
         subimg_End = img_End[y1_list[i]:y2_list[i], x1_list[i]:x2_list[i]]
         cv2.imwrite(os.path.join(path,str(now2)+'.PNG'),subimg_End)
         i+=1
-def hist_compare(d_count):#비교하는 구간
+def hist_compare(d_count):
+	#비교하는 구간
 	i=0
 	msg=''
 	while i<=d_count:

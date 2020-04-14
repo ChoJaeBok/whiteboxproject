@@ -20,27 +20,27 @@ print ('Socket bind complete')
 s.listen(1)
 print ('Socket now listening')
 def point(x):
-#point count
-#pointcount 은 몇개의 좌석을 매핑했는지에 대한 카운트 갯수입니다.
-#즉 inum에서 터치하고 드래그 후에 터치를 땐 후에 x1[0],y1[0],x2[0],y2[0]에 저장을 하고
-#x1[1],y1[1],x2[1],y2[1]에 저장을 하는데 인덱스를 나타내는 것이 point.count입니다.
-#좌석을 지정한 갯수를 뜻합니다.
+	#point count
+	#pointcount 은 몇개의 좌석을 매핑했는지에 대한 카운트 갯수입니다.
+	#즉 inum에서 터치하고 드래그 후에 터치를 땐 후에 x1[0],y1[0],x2[0],y2[0]에 저장을 하고
+	#x1[1],y1[1],x2[1],y2[1]에 저장을 하는데 인덱스를 나타내는 것이 point.count입니다.
+	#좌석을 지정한 갯수를 뜻합니다.
 	if(x==0):
 		point.count +=1
 	else :
 		point.count =0
 point.count=0
 def cnum():
-#cnum은 처음이미지와 마지막 이미지에서 좌석매핑 완료후에 아이나 사람, 물체가 달라졌을
-#경우에 탐지되는 좌석들의 수를 카운트하는 변수입니다.
+	#cnum은 처음이미지와 마지막 이미지에서 좌석매핑 완료후에 아이나 사람, 물체가 달라졌을
+	#경우에 탐지되는 좌석들의 수를 카운트하는 변수입니다.
 	cnum.count+=1
 cnum.count=0
 def inum(x):
-# 1set =0,1 * 2= >reset
-#inum : 스트리밍한 이미지에서 좌표를 지정할 떄 필요한 좌표로는 (x1,y1) (x2,y2)으로
-#처음 터치를 하는 시작부분을 inum=1로 (x1,y1)이고
-#터치를 제거를 했을 경우 inum=2로 증가시켜주면서 (x2,y2)를 저장시키고
-#다른 좌석매핑에서 처음과 마지막을 구분시키기위해 inum=0으로 초기화 해줍니다.
+	# 1set =0,1 * 2= >reset
+	#inum : 스트리밍한 이미지에서 좌표를 지정할 떄 필요한 좌표로는 (x1,y1) (x2,y2)으로
+	#처음 터치를 하는 시작부분을 inum=1로 (x1,y1)이고
+	#터치를 제거를 했을 경우 inum=2로 증가시켜주면서 (x2,y2)를 저장시키고
+	#다른 좌석매핑에서 처음과 마지막을 구분시키기위해 inum=0으로 초기화 해줍니다.
 	if x==0:
 		inum.count+=1
 		if(inum.count ==2):
@@ -73,15 +73,15 @@ height=2220
 path ='/home/pi/Desktop/whitebox'
 
 def do_some_stuffs_with_input(input_string):
-#라즈베리파이를 컨트롤할 명령어 설정
-#input_string 변수가 java 앱에서 넘어오는 값이 같은 걸로 실행.
+	#라즈베리파이를 컨트롤할 명령어 설정
+	#input_string 변수가 java 앱에서 넘어오는 값이 같은 걸로 실행.
 	if input_string == "left":
 		input_string = "left."
-#파이 동작 명령 추가할것
-#초기화명령어
+	#파이 동작 명령 추가할것
+	#초기화명령어
 	elif input_string=='clear':
 		clr_list()
-#처음 스트리밍 화면에서 좌석 매핑하는
+	#처음 스트리밍 화면에서 좌석 매핑하는
 	elif input_string =="StartROI":
 		startROI()
 	#처음 이후에 비교할 스트리밍 화면에서 좌석 추출하는 부분.
