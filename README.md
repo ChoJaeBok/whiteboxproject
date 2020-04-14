@@ -13,7 +13,7 @@
 
 ### 2. 서버(Raspberry pi B3:python)
 * python의 버전과 opencv 버전 :   
-Raspberry piB3에서 사용된 python는 python 3.7.3 openCV-4.1.2을 사용하였습니다.
+Raspberry pi B3에서 사용된 python는 python 3.7.3 openCV-4.1.2을 사용하였습니다.
 ![image](https://user-images.githubusercontent.com/60215726/74607811-5c253600-511f-11ea-82f4-414d0e1cf34e.png)
 
 #### 1)Homography
