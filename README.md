@@ -12,8 +12,8 @@
 ![Flowchart](https://user-images.githubusercontent.com/60215726/74607680-fab09780-511d-11ea-953e-719e34f5ac82.PNG)
 
 ### 2. 서버(Raspberry pi B3:python)
-* python3의 버전과 opencv 버전 :   
-라즈베리파이에서 사용된 python는 python 3.7.3을 사용하였고 openCV-4.1.2을 사용하였습니다.
+* python의 버전과 opencv 버전 :   
+Raspberry piB3에서 사용된 python는 python 3.7.3 openCV-4.1.2을 사용하였습니다.
 ![image](https://user-images.githubusercontent.com/60215726/74607811-5c253600-511f-11ea-82f4-414d0e1cf34e.png)
 
 #### 1)Homography
