@@ -222,7 +222,7 @@ Wifi 무선 통신을 하여 앱에서 실시간 스트리밍을 위해 실시�
 ```
 (위의 코드에서 생성자 부분만 표시한 코드입니다.)   
 ```java
-//constructor
+	//constructor
         MyClientTask(String addr, int port, String message){
             dstAddress = addr;
             dstPort = port;
